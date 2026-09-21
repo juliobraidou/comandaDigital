@@ -1,0 +1,126 @@
+.banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1144px;
+  background: var(--color-graphite);
+  color: var(--color-cream);
+  border: 1px solid rgba(246, 242, 234, 0.14);
+  border-radius: 18px;
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.7);
+  animation: cookieRise var(--dur-standard) var(--ease-entrance) both;
+}
+
+.cardClosing {
+  animation: cookieSink 190ms var(--ease-exit) both;
+}
+
+.text {
+  flex: 1 1 320px;
+  min-width: 0;
+  margin: 0;
+  font: 400 14px/1.6 var(--font-sans);
+  color: rgba(246, 242, 234, 0.75);
+}
+
+.link {
+  color: var(--color-cream);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link:hover {
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  border-radius: 999px;
+  padding: 12px 26px;
+  font: 600 13.5px var(--font-sans);
+  cursor: pointer;
+  transition: background-color var(--dur-quick) var(--ease-standard),
+    border-color var(--dur-quick) var(--ease-standard),
+    transform var(--dur-quick) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.reject {
+  border: 1px solid rgba(246, 242, 234, 0.35);
+  background: transparent;
+  color: var(--color-cream);
+}
+.reject:hover {
+  background: rgba(246, 242, 234, 0.1);
+}
+
+.accept {
+  border: 1px solid var(--color-terracotta);
+  background: var(--color-terracotta);
+  color: #fff;
+}
+.accept:hover {
+  background: var(--color-terracotta-hover);
+  border-color: var(--color-terracotta-hover);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@keyframes cookieRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookieSink {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 18px;
+  }
+  .actions {
+    width: 100%;
+  }
+  .button {
+    flex: 1;
+    padding: 13px 16px;
+    text-align: center;
+  }
+}

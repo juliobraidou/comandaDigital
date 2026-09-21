@@ -1,0 +1,92 @@
+.footer {
+  position: relative;
+  background: var(--color-graphite);
+  color: rgba(246, 242, 234, 0.6);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 88px) 28px 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 32px;
+}
+
+.column {
+  min-width: 0;
+}
+
+.columnTitle {
+  font: 600 12px var(--font-sans);
+  letter-spacing: 0.04em;
+  color: var(--color-cream);
+}
+
+.columnLinks {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.columnLink {
+  font: 400 13.5px var(--font-sans);
+  color: rgba(246, 242, 234, 0.6);
+  transition: color var(--dur-quick) var(--ease-standard);
+}
+.columnLink:hover {
+  color: var(--color-cream);
+}
+
+.wordmarkRow {
+  position: relative;
+  margin-top: clamp(32px, 5vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wordmark {
+  font: 600 150px/1.15 var(--font-serif);
+  letter-spacing: -0.02em;
+  color: rgba(246, 242, 234, 0.06);
+  white-space: nowrap;
+  transform: translateY(-14px);
+}
+
+@media (max-width: 640px) {
+  .wordmark {
+    font-size: 52px;
+  }
+}
+
+.bottomBar {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(246, 242, 234, 0.14);
+  margin-top: 8px;
+  padding: 22px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottomLogo {
+  display: block;
+  opacity: 0.85;
+}
+
+.copyright {
+  font: 400 12px var(--font-sans);
+  color: rgba(246, 242, 234, 0.5);
+}

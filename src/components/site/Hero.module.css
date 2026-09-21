@@ -1,0 +1,126 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-graphite);
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+  /* Entrada cinematográfica: a imagem assenta de 1.06 para 1 enquanto surge.
+     É um one-shot, não um loop — nada que precise de controle de pausa. */
+  animation: heroSettle 1600ms var(--ease-entrance) both;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(18, 16, 14, 0.94) 0%,
+    rgba(18, 16, 14, 0.52) 42%,
+    rgba(18, 16, 14, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 130px) 32px clamp(44px, 6vw, 76px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.eyebrow {
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.75);
+  animation: riseIn var(--dur-slow) var(--ease-entrance) 120ms both;
+}
+
+.title {
+  margin: 22px 0 0;
+  font: 600 clamp(46px, 7.6vw, 100px) / 0.94 var(--font-serif);
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 13ch;
+  text-wrap: balance;
+  animation: riseIn var(--dur-slow) var(--ease-entrance) 210ms both;
+}
+
+.actionsRow {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+  animation: riseIn var(--dur-slow) var(--ease-entrance) 300ms both;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 40ch;
+  font: 400 17px/1.7 var(--font-sans);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta {
+  border-radius: 999px;
+  padding: 17px 34px;
+  background: var(--color-terracotta);
+  color: #fff;
+  font: 600 14px var(--font-sans);
+  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, 0.9);
+  transition: background-color var(--dur-quick) var(--ease-standard),
+    transform var(--dur-quick) var(--ease-standard),
+    box-shadow var(--dur-quick) var(--ease-standard);
+  white-space: nowrap;
+}
+/* Secundária: a sombra acompanha o levantar do botão em vez de ficar parada. */
+.cta:hover {
+  background: var(--color-terracotta-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px -16px rgba(0, 0, 0, 0.95);
+}
+.cta:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSettle {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

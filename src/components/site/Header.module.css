@@ -1,0 +1,182 @@
+.header {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 20px;
+  box-sizing: border-box;
+  animation: fadeIn var(--dur-slow) var(--ease-entrance) both;
+}
+
+.logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 24px;
+}
+
+.navLink {
+  font: 500 13px var(--font-sans);
+  color: rgba(255, 255, 255, 0.78);
+  transition: color var(--dur-quick) var(--ease-standard);
+}
+.navLink:hover {
+  color: #fff;
+}
+
+.navCta {
+  border-radius: 999px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font: 600 12.5px var(--font-sans);
+  transition: background-color var(--dur-quick) var(--ease-standard),
+    color var(--dur-quick) var(--ease-standard),
+    border-color var(--dur-quick) var(--ease-standard),
+    transform var(--dur-quick) var(--ease-standard);
+}
+.navCta:hover {
+  background: #fff;
+  color: var(--color-graphite);
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+.navCta:active {
+  transform: translateY(0);
+}
+
+.hamburger {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--dur-quick) var(--ease-standard);
+}
+.hamburger:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.hamburgerBar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  transform: translate(-50%, -50%) translateY(-4px);
+  transition: transform var(--dur-standard) var(--ease-standard);
+}
+.hamburgerBar:last-child {
+  transform: translate(-50%, -50%) translateY(4px);
+}
+
+/* Os dois traços viram um X: giram para o centro em vez de sumir. */
+.hamburger[aria-expanded="true"] .hamburgerBar {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .hamburgerBar:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.desktopNav {
+  display: flex;
+}
+.mobileToggle {
+  display: none;
+}
+
+@media (max-width: 759px) {
+  .desktopNav {
+    display: none;
+  }
+  .mobileToggle {
+    display: flex;
+  }
+}
+
+.mobileMenuWrap {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px 20px;
+  box-sizing: border-box;
+  /* Consistência espacial: o menu desce do header, então entra de cima
+     (o riseIn global subia de baixo, contrariando a origem do elemento). */
+  animation: menuIn var(--dur-standard) var(--ease-entrance) both;
+}
+
+.mobileMenuWrapClosing {
+  animation: menuOut 190ms var(--ease-exit) both;
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.mobileMenu {
+  background: rgba(24, 21, 18, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobileLink {
+  padding: 14px 16px;
+  border-radius: 10px;
+  font: 500 15px var(--font-sans);
+  color: #fff;
+  transition: background-color var(--dur-quick) var(--ease-standard);
+}
+.mobileLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mobileCta {
+  margin-top: 6px;
+  text-align: center;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--color-terracotta);
+  font: 600 15px var(--font-sans);
+  color: #fff;
+}

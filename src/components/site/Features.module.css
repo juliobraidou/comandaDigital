@@ -1,0 +1,208 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) 28px clamp(72px, 9vw, 120px);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.headerCopy {
+  min-width: 0;
+}
+
+.eyebrow {
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.2em;
+  color: var(--color-terracotta);
+}
+
+.title {
+  margin: 18px 0 0;
+  max-width: 20ch;
+  font: 600 clamp(32px, 4.6vw, 56px) / 1.05 var(--font-serif);
+  letter-spacing: -0.02em;
+  color: var(--color-graphite);
+}
+
+.headerNote {
+  margin: 0;
+  max-width: 32ch;
+  font: 400 15px/1.7 var(--font-sans);
+  color: var(--color-text-neutral);
+}
+
+.grid {
+  margin-top: clamp(36px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--color-border-2);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 18px 36px -30px rgba(0, 0, 0, 0.4);
+  transition: transform var(--dur-quick) var(--ease-standard),
+    box-shadow var(--dur-quick) var(--ease-standard),
+    border-color var(--dur-quick) var(--ease-standard);
+}
+/* Superfície com cara de interativa precisa responder: sobe, aprofunda a
+   sombra (secundária) e aquece a borda. */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 48px -28px rgba(0, 0, 0, 0.45);
+  border-color: var(--color-border-3);
+}
+
+.cardTitle {
+  margin: 0;
+  font: 600 24px var(--font-serif);
+  color: var(--color-graphite);
+}
+
+.cardText {
+  margin: 12px 0 0;
+  font: 400 14.5px/1.7 var(--font-sans);
+  color: var(--color-text-neutral);
+}
+
+/* Featured half-and-half pizza card */
+.feature {
+  min-width: 0;
+  grid-column: 1 / -1;
+  background: var(--color-graphite);
+  color: var(--color-cream);
+  border-radius: 22px;
+  padding: clamp(28px, 3.4vw, 44px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 32px;
+  align-items: center;
+  box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.6);
+}
+
+.featureCopy {
+  min-width: 0;
+}
+
+.featureTitle {
+  margin: 0;
+  font: 600 clamp(26px, 3vw, 36px) / 1.1 var(--font-serif);
+}
+
+.featureText {
+  margin: 14px 0 0;
+  max-width: 34ch;
+  font: 400 15px/1.7 var(--font-sans);
+  color: rgba(246, 242, 234, 0.7);
+}
+
+.pizzaCard {
+  min-width: 0;
+  background: var(--color-cream);
+  border-radius: 16px;
+  padding: 18px;
+  color: var(--color-graphite);
+  box-shadow: 0 20px 40px -22px rgba(0, 0, 0, 0.6);
+}
+
+.pizzaName {
+  display: block;
+  font: 600 18px var(--font-serif);
+}
+.pizzaSize {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.pizzaToggle {
+  margin-top: 12px;
+  display: flex;
+  background: #f2efe7;
+  border-radius: 999px;
+  padding: 3px;
+}
+.pizzaToggleOption {
+  flex: 1;
+  text-align: center;
+  padding: 7px;
+  border-radius: 999px;
+  font: 600 10px var(--font-sans);
+  color: var(--color-text-neutral);
+}
+.pizzaToggleOptionActive {
+  flex: 1;
+  text-align: center;
+  padding: 7px;
+  border-radius: 999px;
+  background: var(--color-terracotta);
+  color: #fff;
+  font: 600 10px var(--font-sans);
+}
+
+.pizzaHalves {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+.halfFilled {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid var(--color-terracotta);
+  background: #f7e4da;
+  padding: 10px;
+}
+.halfEmpty {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px dashed var(--color-border-3);
+  padding: 10px;
+}
+.halfLabel {
+  display: block;
+  font: 600 7.5px var(--font-sans);
+  letter-spacing: 0.1em;
+  color: var(--color-terracotta-dark);
+}
+.halfLabelMuted {
+  display: block;
+  font: 600 7.5px var(--font-sans);
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+.halfValue {
+  display: block;
+  margin-top: 4px;
+  font: 600 14px var(--font-serif);
+}
+.halfValueMuted {
+  display: block;
+  margin-top: 4px;
+  font: 600 14px var(--font-serif);
+  color: var(--color-muted);
+}
+
+.pizzaTotalRow {
+  margin-top: 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.pizzaTotalLabel {
+  font: 500 9px var(--font-sans);
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+.pizzaTotalValue {
+  font: 600 22px var(--font-serif);
+  color: var(--color-terracotta);
+}

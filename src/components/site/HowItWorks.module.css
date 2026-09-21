@@ -1,0 +1,68 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) 28px clamp(48px, 6vw, 80px);
+}
+
+.eyebrow {
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.2em;
+  color: var(--color-terracotta);
+}
+
+.title {
+  margin: 18px 0 0;
+  max-width: 17ch;
+  font: 600 clamp(32px, 4.6vw, 56px) / 1.05 var(--font-serif);
+  letter-spacing: -0.02em;
+  color: var(--color-graphite);
+}
+
+.track {
+  margin-top: clamp(40px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(24px, 3vw, 44px);
+}
+
+.step {
+  min-width: 0;
+}
+
+.progressTrack {
+  position: relative;
+  height: 2px;
+  background: #e8e3d7;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--color-terracotta);
+  transition: width 0.2s linear;
+}
+
+.stepNumber {
+  font: 400 13px var(--font-mono);
+  color: var(--color-muted);
+  transition: color var(--dur-standard) var(--ease-standard);
+}
+.stepNumber[data-active="true"] {
+  color: var(--color-terracotta);
+}
+
+.stepTitle {
+  margin: 14px 0 0;
+  font: 600 26px var(--font-serif);
+  color: var(--color-graphite);
+}
+
+.stepText {
+  margin: 12px 0 0;
+  font: 400 15px/1.7 var(--font-sans);
+  color: var(--color-text-neutral);
+}
